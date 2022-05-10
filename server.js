@@ -1,7 +1,8 @@
-const cors = require("cors");
-const dotenv = require("dotenv");
-const express = require("express");
-const mongoose = require("mongoose");
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import userRoute from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -9,6 +10,8 @@ const port = 3001;
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/user", userRoute);
 
 mongoose
   .connect(
